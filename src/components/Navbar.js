@@ -17,7 +17,7 @@ function Navbar() {
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar className="toolbar">
           <IconButton
             onClick={handleDrawer}
@@ -29,12 +29,14 @@ function Navbar() {
             <Menu />
           </IconButton>
           <Typography variant="h6">Bugs Recipes 🐞🐛</Typography>
-          <Button color="inherit">Add +</Button>
+          {/* <Button color="inherit">Add +</Button> */}
         </Toolbar>
       </AppBar>
       <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
         <div className="drawer">
-          <h4>Fried Rice</h4>
+          <Button variant="outlined" size="large">
+            New Recipe +
+          </Button>
         </div>
       </Drawer>
     </>

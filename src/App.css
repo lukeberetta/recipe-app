@@ -1,8 +1,13 @@
 .toolbar {
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .drawer {
   padding: 16px;
   width: 300px;
+}
+
+.recipe-card {
+  padding: 24px;
+  margin: 16px;
 }
