@@ -20,3 +20,9 @@ export const theme = createMuiTheme({
     ].join(","),
   },
 });
+
+export const darktheme = createMuiTheme({
+  palette: {
+    type: "dark",
+  },
+});

@@ -3,7 +3,7 @@
   "name": "Bugs Recipes: The Collection",
   "icons": [
     {
-        "src": "/img/logo.png",
+        "src": "/logo.png",
         "type": "image/png",
         "sizes": "1024x1024"
     }

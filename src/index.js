@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { ThemeProvider } from "@material-ui/core";
-import { theme } from "./theme";
+import { darktheme, theme } from "./theme";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={darktheme}>
       <App />
     </ThemeProvider>
   </React.StrictMode>,

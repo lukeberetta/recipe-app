@@ -3,7 +3,7 @@ import React from "react";
 
 export function RecipeCard(props) {
   return (
-    <Paper elevation={3} className="recipe-card">
+    <Paper elevation={1} className="recipe-card">
       <h4>Recipe {props.number}</h4>
     </Paper>
   );
