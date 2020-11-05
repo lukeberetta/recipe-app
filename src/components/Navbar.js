@@ -28,7 +28,7 @@ function Navbar() {
           >
             <Menu />
           </IconButton>
-          <Typography variant="h6">Bugs Recipes🐞 🐛</Typography>
+          <Typography variant="h6">Bugs Recipes 🐞🐛</Typography>
           <Button color="inherit">Add +</Button>
         </Toolbar>
       </AppBar>
