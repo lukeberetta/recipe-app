@@ -3,13 +3,15 @@
   "name": "Bugs Recipes: The Collection",
   "icons": [
     {
-        "src": "/images/logo.png",
+        "src": "/img/logo.png",
         "type": "image/png",
         "sizes": "1024x1024"
     }
 ],
-  "start_url": ".",
+  "scope": ".",
+  "start_url": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
