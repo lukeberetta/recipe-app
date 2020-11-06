@@ -17,7 +17,7 @@ function Navbar() {
 
   return (
     <>
-      <AppBar position="sticky">
+      <AppBar position="sticky" elevation={1}>
         <Toolbar className="toolbar">
           <IconButton
             onClick={handleDrawer}

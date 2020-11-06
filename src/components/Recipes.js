@@ -6,7 +6,7 @@ export function Recipes() {
     <div>
       {[1, 2, 3, 4, 5, 6, 7].map((r) => {
         console.log(r);
-        return <RecipeCard number={r}></RecipeCard>;
+        return <RecipeCard number={r} description={r}></RecipeCard>;
       })}
     </div>
   );
