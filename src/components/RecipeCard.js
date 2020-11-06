@@ -44,5 +44,3 @@ const Title = styled(Typography)`
   font-weight: bold;
   margin-bottom: 8px;
 `;
-
-const Description = styled(Typography)``;
