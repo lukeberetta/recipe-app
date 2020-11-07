@@ -3,14 +3,17 @@ import { createMuiTheme } from "@material-ui/core";
 export const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#853D1D",
+      main: "#35bea1",
+      contrastText: "white",
     },
     background: {
-      paper: "#f3f3f3",
+      // paper: "#f6f5fb",
+      default: "#f6f5fb",
     },
   },
   typography: {
     fontFamily: [
+      "DM Sans",
       '"Helvetica Neue"',
       "Arial",
       "sans-serif",
@@ -18,7 +21,11 @@ export const theme = createMuiTheme({
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
     ].join(","),
+    allVariants: {
+      letterSpacing: "-0.5px",
+    },
   },
+  shadows: ["none"],
 });
 
 export const darktheme = createMuiTheme({

@@ -24,8 +24,23 @@
     <link href="splashscreens/iphonexsmax_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" rel="apple-touch-startup-image" />
     <title>Bugs Recipes</title>
   </head>
-  <body ontouchstart=”” class="dark-mode">
+  <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+    <!-- Register service worker -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("./serviceworker.js")
+            .then((reg) => {
+              console.log("Service worker registered.");
+            })
+            .catch((err) => {
+              console.log("Service worker not registered.");
+            });
+        });
+      }
+    </script>
   </body>
 </html>

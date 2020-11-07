@@ -4,14 +4,18 @@ import React from "react";
 import styled from "styled-components";
 
 export function RecipeCard(props) {
+  const removeCard = (text) => {
+    console.log(text);
+  };
+
   return (
-    <Card elevation={1}>
+    <Card>
       <Left>
-        <Title variant="p">Recipe {props.number}</Title>
-        <Typography variant="p">Description {props.description}</Typography>
+        <Title>Recipe {props.number}</Title>
+        <Typography>Description {props.description}</Typography>
       </Left>
       <Right>
-        <IconButton>
+        <IconButton onClick={() => removeCard(props.number)}>
           <Delete />
         </IconButton>
       </Right>
@@ -21,10 +25,10 @@ export function RecipeCard(props) {
 
 const Card = styled(Paper)`
   padding: 24px;
-  margin: 8px;
+  margin: 16px;
   display: flex;
   align-items: center;
-  height: 80px;
+  height: 120px;
 
   &:hover {
     opacity: 0.8;

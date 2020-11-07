@@ -8,6 +8,7 @@ import {
 } from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
 import { useState } from "react";
+import styled from "styled-components";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -17,9 +18,9 @@ function Navbar() {
 
   return (
     <>
-      <AppBar position="sticky" elevation={1}>
-        <Toolbar className="toolbar">
-          <IconButton
+      <AppBar position="sticky">
+        <Container>
+          <Hamburger
             onClick={handleDrawer}
             edge="start"
             color="inherit"
@@ -27,20 +28,39 @@ function Navbar() {
             key="left"
           >
             <Menu />
-          </IconButton>
-          <Typography variant="h6">Bugs Recipes 🐞🐛</Typography>
-          {/* <Button color="inherit">Add +</Button> */}
-        </Toolbar>
+          </Hamburger>
+          <Logotype>Bugs Recepies 🐞🐛</Logotype>
+        </Container>
       </AppBar>
-      <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
-        <div className="drawer">
+      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
+        <InnerDrawer>
           <Button variant="outlined" size="large">
             New Recipe +
           </Button>
-        </div>
+        </InnerDrawer>
       </Drawer>
     </>
   );
 }
 
 export default Navbar;
+
+const Logotype = styled(Typography)`
+  font-size: 16px;
+  font-weight: normal;
+`;
+
+const Container = styled(Toolbar)`
+  justify-content: center;
+`;
+
+const Hamburger = styled(IconButton)`
+  position: absolute;
+  right: 8px;
+`;
+
+const InnerDrawer = styled.div`
+  padding: 16px;
+  width: 300px;
+  max-width: 60vw;
+`;
