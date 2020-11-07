@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { RecipeCard } from "./RecipeCard";
 
 export function Recipes() {
-  const [recipes, setRecipes] = useState([1, 2, 3, 4, 5, 6, 7]);
+  const [recipes] = useState([1, 2, 3, 4, 5, 6, 7]);
 
   return (
     <div>
