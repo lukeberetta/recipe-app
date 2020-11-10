@@ -1,6 +1,5 @@
 import {
   AppBar,
-  Button,
   Drawer,
   IconButton,
   Toolbar,
@@ -54,10 +53,4 @@ const Container = styled(Toolbar)`
 const Hamburger = styled(IconButton)`
   position: absolute;
   right: 8px;
-`;
-
-const InnerDrawer = styled.div`
-  padding: 16px;
-  width: 300px;
-  max-width: 60vw;
 `;
