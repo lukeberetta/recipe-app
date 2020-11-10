@@ -11,8 +11,8 @@ export function RecipeCard(props) {
   return (
     <Card>
       <Left>
-        <Title>Recipe {props.number}</Title>
-        <Typography>Description {props.description}</Typography>
+        <Title variant="h6">{props.title}</Title>
+        <Typography>{props.description}</Typography>
       </Left>
       <Right>
         <IconButton onClick={() => removeCard(props.number)}>

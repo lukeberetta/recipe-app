@@ -12,13 +12,13 @@ self.addEventListener("install", (event) => {
 });
 
 // Listen
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then(() => {
-      return fetch(event.request).catch(() => caches.match("offline.html"));
-    })
-  );
-});
+// self.addEventListener("fetch", (event) => {
+//   event.respondWith(
+//     caches.match(event.request).then(() => {
+//       return fetch(event.request).catch(() => caches.match("offline.html"));
+//     })
+//   );
+// });
 
 // Activate
 self.addEventListener("activiate", (event) => {
@@ -37,3 +37,13 @@ self.addEventListener("activiate", (event) => {
     )
   );
 });
+
+// rules_version = '2';
+// service cloud.firestore {
+//   match /databases/{database}/documents {
+//     match /{document=**} {
+//       allow read, write: if
+//           request.time < timestamp.date(2020, 12, 9);
+//     }
+//   }
+// }

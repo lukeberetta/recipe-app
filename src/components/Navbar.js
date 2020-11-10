@@ -9,6 +9,7 @@ import {
 import { Menu } from "@material-ui/icons";
 import { useState } from "react";
 import styled from "styled-components";
+import { NewRecipeForm } from "./NewRecipeForm";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -33,11 +34,7 @@ function Navbar() {
         </Container>
       </AppBar>
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-        <InnerDrawer>
-          <Button variant="outlined" size="large">
-            New Recipe +
-          </Button>
-        </InnerDrawer>
+        <NewRecipeForm />
       </Drawer>
     </>
   );
@@ -46,7 +43,7 @@ function Navbar() {
 export default Navbar;
 
 const Logotype = styled(Typography)`
-  font-size: 16px;
+  font-size: 18px;
   font-weight: normal;
 `;
 

@@ -26,6 +26,14 @@ export const theme = createMuiTheme({
     },
   },
   shadows: ["none"],
+  overrides: {
+    MuiTextField: {
+      root: {
+        width: "100%",
+        margin: "8px 0",
+      },
+    },
+  },
 });
 
 export const darktheme = createMuiTheme({
