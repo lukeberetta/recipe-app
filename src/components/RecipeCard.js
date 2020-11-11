@@ -25,17 +25,13 @@ export function RecipeCard(props) {
   const createChecklist = (string) => {
     const arr = string.split(", ");
 
-    String.prototype.capitalize = function () {
-      return this.charAt(0).toUpperCase() + this.slice(1);
-    };
-
     return (
       <ul>
         {arr.map((item) => {
           return (
             <div>
               <input type="checkbox"></input>
-              <label>{item.capitalize()}</label>
+              <label>{item}</label>
             </div>
           );
         })}

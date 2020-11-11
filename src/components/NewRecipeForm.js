@@ -45,6 +45,7 @@ export const NewRecipeForm = (props) => {
         <Typography>What's inside?</Typography>
         <TextField
           value={ingredients}
+          required
           placeholder="Example: Garlic, onions, celery..."
           variant="outlined"
           label="Ingredients"
