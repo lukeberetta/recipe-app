@@ -6,9 +6,10 @@ function useRecipes() {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    firebase
+    const unsubscribe = firebase
       .firestore()
       .collection("recipes")
+      .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) => {
         const newRecipes = snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -16,6 +17,7 @@ function useRecipes() {
         }));
         setRecipes(newRecipes);
       });
+    return () => unsubscribe();
   }, []);
   return recipes;
 }
@@ -28,9 +30,11 @@ export function Recipes() {
       {recipes.map((r) => {
         return (
           <RecipeCard
+            id={r.id}
             key={r.id}
             title={r.title}
-            description={r.ingredients}
+            ingredients={r.ingredients}
+            instructions={r.instructions}
           ></RecipeCard>
         );
       })}

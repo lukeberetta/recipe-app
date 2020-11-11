@@ -1,25 +1,52 @@
-import { IconButton, Paper, Typography } from "@material-ui/core";
+import {
+  Dialog,
+  DialogContent,
+  IconButton,
+  Paper,
+  Typography,
+} from "@material-ui/core";
 import { Delete } from "@material-ui/icons";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import firebase from "../firebase";
+import Spacer from "./Spacer";
 
 export function RecipeCard(props) {
-  const removeCard = (text) => {
-    console.log(text);
-  };
+  const [open, setOpen] = useState(false);
+
+  function deleteRecipe(id) {
+    firebase.firestore().collection("recipes").doc(id).delete();
+  }
+
+  function toggleOpen(bool) {
+    return () => setOpen(bool);
+  }
 
   return (
-    <Card>
-      <Left>
-        <Title variant="h6">{props.title}</Title>
-        <Typography>{props.description}</Typography>
-      </Left>
-      <Right>
-        <IconButton onClick={() => removeCard(props.number)}>
-          <Delete />
-        </IconButton>
-      </Right>
-    </Card>
+    <>
+      <Card onClick={toggleOpen(true)}>
+        <Left>
+          <Title variant="h6">{props.title}</Title>
+          <Typography>{props.ingredients}</Typography>
+        </Left>
+        <Right>
+          <IconButton onClick={() => deleteRecipe(props.id)}>
+            <Delete />
+          </IconButton>
+        </Right>
+      </Card>
+      <Dialog open={open} fullWidth onBackdropClick={toggleOpen(false)}>
+        <DialogContent>
+          <Title variant="h6">{props.title}</Title>
+          <Typography variant="caption">Ingredients:</Typography>
+          <Typography>{props.ingredients}</Typography>
+          <Spacer />
+          <Typography variant="caption">Instructions:</Typography>
+          <Typography>{props.instructions}</Typography>
+          <Spacer />
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
 
@@ -29,10 +56,6 @@ const Card = styled(Paper)`
   display: flex;
   align-items: center;
   height: 120px;
-
-  &:hover {
-    opacity: 0.8;
-  }
 `;
 
 const Left = styled.div`
@@ -45,6 +68,5 @@ const Right = styled.div`
 `;
 
 const Title = styled(Typography)`
-  font-weight: bold;
   margin-bottom: 8px;
 `;

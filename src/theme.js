@@ -7,7 +7,6 @@ export const theme = createMuiTheme({
       contrastText: "white",
     },
     background: {
-      // paper: "#f6f5fb",
       default: "#f6f5fb",
     },
   },
@@ -33,11 +32,13 @@ export const theme = createMuiTheme({
         margin: "8px 0",
       },
     },
-  },
-});
-
-export const darktheme = createMuiTheme({
-  palette: {
-    type: "dark",
+    MuiPaper: {
+      root: {
+        boxShadow: "",
+        "&:hover": {
+          boxShadow: "0 6px 10px rgba(0, 0, 0, 0.03)",
+        },
+      },
+    },
   },
 });

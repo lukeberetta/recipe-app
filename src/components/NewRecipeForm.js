@@ -1,10 +1,10 @@
 import { Button, TextField, Typography } from "@material-ui/core";
 import React, { useState } from "react";
 import styled from "styled-components";
-
 import firebase from "../firebase";
+import Spacer from "./Spacer";
 
-export const NewRecipeForm = () => {
+export const NewRecipeForm = (props) => {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [instructions, setInstructions] = useState("");
@@ -18,6 +18,7 @@ export const NewRecipeForm = () => {
         title,
         ingredients,
         instructions,
+        timestamp: +new Date(),
       })
       .then(() => {
         setTitle("");
@@ -29,7 +30,7 @@ export const NewRecipeForm = () => {
   return (
     <form onSubmit={onSubmit}>
       <InnerDrawer>
-        <Typography variant="h5">Add new recipe</Typography>
+        <Typography variant="h6">New recipe</Typography>
         <Spacer />
         <Typography>What's it called?</Typography>
         <TextField
@@ -42,6 +43,7 @@ export const NewRecipeForm = () => {
         <Spacer />
         <Typography>What's inside?</Typography>
         <TextField
+          value={ingredients}
           variant="outlined"
           label="Ingredients"
           multiline
@@ -51,6 +53,7 @@ export const NewRecipeForm = () => {
         <Spacer />
         <Typography>How make??</Typography>
         <TextField
+          value={instructions}
           variant="outlined"
           label="Instructions"
           multiline
@@ -58,8 +61,15 @@ export const NewRecipeForm = () => {
           onChange={(e) => setInstructions(e.currentTarget.value)}
         ></TextField>
         <Spacer />
-        <Button fullWidth type="submit" variant="contained" size="large">
-          Add it to the book! 🍆
+        <Button
+          fullWidth
+          type="submit"
+          variant="contained"
+          color="primary"
+          size="large"
+          onClick={props.handleDrawer}
+        >
+          done
         </Button>
       </InnerDrawer>
     </form>
@@ -70,8 +80,4 @@ const InnerDrawer = styled.div`
   padding: 16px;
   width: 500px;
   max-width: 85vw;
-`;
-
-const Spacer = styled.div`
-  height: 16px;
 `;

@@ -1,3 +1,7 @@
+:root {
+  --color-primary: #35bea1;
+}
+
 /* dm-sans-regular - latin */
 @font-face {
   font-family: "DM Sans";

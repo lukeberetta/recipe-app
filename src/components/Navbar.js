@@ -1,11 +1,4 @@
-import {
-  AppBar,
-  Drawer,
-  IconButton,
-  Toolbar,
-  Typography,
-} from "@material-ui/core";
-import { Menu } from "@material-ui/icons";
+import { AppBar, Button, Drawer, Toolbar, Typography } from "@material-ui/core";
 import { useState } from "react";
 import styled from "styled-components";
 import { NewRecipeForm } from "./NewRecipeForm";
@@ -13,27 +6,21 @@ import { NewRecipeForm } from "./NewRecipeForm";
 function Navbar() {
   const [open, setOpen] = useState(false);
   const handleDrawer = () => {
-    setOpen(true);
+    setOpen(!open);
   };
 
   return (
     <>
       <AppBar position="sticky">
         <Container>
-          <Hamburger
-            onClick={handleDrawer}
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            key="left"
-          >
-            <Menu />
-          </Hamburger>
+          <NewButton color="inherit" variant="outlined" onClick={handleDrawer}>
+            New Recipe
+          </NewButton>
           <Logotype>Bugs Recepies 🐞🐛</Logotype>
         </Container>
       </AppBar>
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-        <NewRecipeForm />
+        <NewRecipeForm handleDrawer={handleDrawer} />
       </Drawer>
     </>
   );
@@ -50,7 +37,7 @@ const Container = styled(Toolbar)`
   justify-content: center;
 `;
 
-const Hamburger = styled(IconButton)`
+const NewButton = styled(Button)`
   position: absolute;
-  right: 8px;
+  right: 16px;
 `;
