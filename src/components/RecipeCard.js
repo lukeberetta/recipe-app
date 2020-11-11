@@ -22,6 +22,27 @@ export function RecipeCard(props) {
     return () => setOpen(bool);
   }
 
+  const createChecklist = (string) => {
+    const arr = string.split(", ");
+
+    String.prototype.capitalize = function () {
+      return this.charAt(0).toUpperCase() + this.slice(1);
+    };
+
+    return (
+      <ul>
+        {arr.map((item) => {
+          return (
+            <div>
+              <input type="checkbox"></input>
+              <label>{item.capitalize()}</label>
+            </div>
+          );
+        })}
+      </ul>
+    );
+  };
+
   return (
     <>
       <Card onClick={toggleOpen(true)}>
@@ -39,7 +60,7 @@ export function RecipeCard(props) {
         <DialogContent>
           <Title variant="h6">{props.title}</Title>
           <Typography variant="caption">Ingredients:</Typography>
-          <Typography>{props.ingredients}</Typography>
+          <Typography>{createChecklist(props.ingredients)}</Typography>
           <Spacer />
           <Typography variant="caption">Instructions:</Typography>
           <Typography>{props.instructions}</Typography>

@@ -38,12 +38,14 @@ export const NewRecipeForm = (props) => {
           variant="outlined"
           value={title}
           label="Title"
+          placeholder="Example: Fancy Brownies..."
           onChange={(e) => setTitle(e.currentTarget.value)}
         ></TextField>
         <Spacer />
         <Typography>What's inside?</Typography>
         <TextField
           value={ingredients}
+          placeholder="Example: Garlic, onions, celery..."
           variant="outlined"
           label="Ingredients"
           multiline
@@ -56,6 +58,7 @@ export const NewRecipeForm = (props) => {
           value={instructions}
           variant="outlined"
           label="Instructions"
+          placeholder="Be descriptive..."
           multiline
           rows={8}
           onChange={(e) => setInstructions(e.currentTarget.value)}
