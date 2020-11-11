@@ -14,9 +14,11 @@ function Navbar() {
       <AppBar position="sticky">
         <Container>
           <NewButton color="inherit" variant="outlined" onClick={handleDrawer}>
-            New Recipe
+            Add
           </NewButton>
-          <Logotype>Bugs Recepies 🐞🐛</Logotype>
+          <Logotype>
+            Tess's Kitchen <sup>v0.1</sup>
+          </Logotype>
         </Container>
       </AppBar>
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
@@ -29,8 +31,8 @@ function Navbar() {
 export default Navbar;
 
 const Logotype = styled(Typography)`
-  font-size: 18px;
-  font-weight: normal;
+  // font-size: 18px;
+  font-weight: bolder;
 `;
 
 const Container = styled(Toolbar)`
