@@ -1,14 +1,16 @@
 import {
+  Button,
   Checkbox,
   Dialog,
   DialogContent,
+  DialogTitle,
   FormControlLabel,
   FormGroup,
   IconButton,
   Paper,
   Typography,
 } from "@material-ui/core";
-import { Delete } from "@material-ui/icons";
+import { Close, Delete } from "@material-ui/icons";
 import React, { useState } from "react";
 import styled from "styled-components";
 import firebase from "../firebase";
@@ -56,11 +58,7 @@ export function RecipeCard(props) {
           <Title variant="h6">{props.title}</Title>
           <Body>{props.ingredients}</Body>
         </Left>
-        <Right>
-          <IconButton onClick={() => deleteRecipe(props.id)}>
-            <Delete />
-          </IconButton>
-        </Right>
+        <Right></Right>
       </Card>
 
       <Dialog
@@ -69,14 +67,26 @@ export function RecipeCard(props) {
         fullWidth
         onBackdropClick={toggleOpen(false)}
       >
-        <DialogContent>
-          <Title variant="h6">{props.title}</Title>
+        <DialogTitle>{props.title}</DialogTitle>
+        <CloseButton aria-label="close" onClick={toggleOpen(false)}>
+          <Close />
+        </CloseButton>
+        <DialogContent dividers>
           <Typography variant="caption">Ingredients:</Typography>
           <Typography>{createChecklist(props.ingredients)}</Typography>
           <Spacer />
           <Typography variant="caption">Instructions:</Typography>
           <Typography>{props.instructions}</Typography>
           <Spacer />
+          <Spacer />
+          <DeleteRecipe
+            startIcon={<Delete />}
+            variant="outlined"
+            color="primary"
+            onClick={() => deleteRecipe(props.id)}
+          >
+            Remove Recipe
+          </DeleteRecipe>
         </DialogContent>
       </Dialog>
     </>
@@ -110,4 +120,16 @@ const Body = styled(Typography)`
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+`;
+
+const CloseButton = styled(IconButton)`
+  position: absolute;
+  top: 8px;
+  right: 8px;
+`;
+const DeleteRecipe = styled(Button)`
+  // bottom: 24px;
+  // position: absolute;
+  // width: calc(100% - 48px);
+  margin-bottom: 8px;
 `;
