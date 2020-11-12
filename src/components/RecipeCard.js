@@ -1,6 +1,9 @@
 import {
+  Checkbox,
   Dialog,
   DialogContent,
+  FormControlLabel,
+  FormGroup,
   IconButton,
   Paper,
   Typography,
@@ -26,16 +29,23 @@ export function RecipeCard(props) {
     const arr = string.split(", ");
 
     return (
-      <ul>
+      <FormGroup>
         {arr.map((item) => {
           return (
-            <div>
-              <input type="checkbox"></input>
-              <label>{item}</label>
-            </div>
+            <FormControlLabel
+              style={{ textTransform: "capitalize" }}
+              control={
+                <Checkbox
+                // checked={gilad}
+                // onChange={handleChange}
+                // name="gilad"
+                />
+              }
+              label={item}
+            />
           );
         })}
-      </ul>
+      </FormGroup>
     );
   };
 
@@ -44,7 +54,7 @@ export function RecipeCard(props) {
       <Card onClick={toggleOpen(true)}>
         <Left>
           <Title variant="h6">{props.title}</Title>
-          <Typography>{props.ingredients}</Typography>
+          <Body>{props.ingredients}</Body>
         </Left>
         <Right>
           <IconButton onClick={() => deleteRecipe(props.id)}>
@@ -52,7 +62,13 @@ export function RecipeCard(props) {
           </IconButton>
         </Right>
       </Card>
-      <Dialog open={open} fullWidth onBackdropClick={toggleOpen(false)}>
+
+      <Dialog
+        style={{ width: "100%", maxWidth: "none" }}
+        open={open}
+        fullWidth
+        onBackdropClick={toggleOpen(false)}
+      >
         <DialogContent>
           <Title variant="h6">{props.title}</Title>
           <Typography variant="caption">Ingredients:</Typography>
@@ -86,4 +102,12 @@ const Right = styled.div`
 
 const Title = styled(Typography)`
   margin-bottom: 8px;
+`;
+
+const Body = styled(Typography)`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 `;

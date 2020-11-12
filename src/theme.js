@@ -3,8 +3,12 @@ import { createMuiTheme } from "@material-ui/core";
 export const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#35bea1",
-      contrastText: "white",
+      main: "#0D3D36",
+      contrastText: "#FFDCE0",
+    },
+    secondary: {
+      main: "#FFDCE0",
+      contrastText: "#0D3D36",
     },
     background: {
       default: "#f6f5fb",
@@ -30,6 +34,20 @@ export const theme = createMuiTheme({
       root: {
         width: "100%",
         margin: "8px 0",
+      },
+    },
+    MuiDialog: {
+      paper: {
+        margin: 16,
+        maxWidth: "none",
+      },
+      paperFullWidth: {
+        width: "100%",
+        height: "100%",
+      },
+      paperScrollPaper: {
+        maxHeight: "calc(100% - 88px)",
+        marginTop: "72px",
       },
     },
     MuiPaper: {

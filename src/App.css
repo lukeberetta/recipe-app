@@ -2,20 +2,6 @@
   --color-primary: #35bea1;
 }
 
-ul {
-  padding: 8px;
-  margin: 0;
-}
-
-ul label {
-  text-transform: capitalize;
-}
-
-input[type="checkbox"] {
-  transform: scale(1.2);
-  margin: 0 8px 12px -6px;
-}
-
 /* dm-sans-regular - latin */
 @font-face {
   font-family: "DM Sans";
