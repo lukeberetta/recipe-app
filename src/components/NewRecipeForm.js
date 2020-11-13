@@ -46,7 +46,7 @@ export const NewRecipeForm = (props) => {
         <TextField
           value={ingredients}
           required
-          placeholder="Example: Garlic, onions, celery..."
+          placeholder="Seperate with a comma..."
           variant="outlined"
           label="Ingredients"
           multiline
@@ -83,5 +83,5 @@ export const NewRecipeForm = (props) => {
 const InnerDrawer = styled.div`
   padding: 16px;
   width: 500px;
-  max-width: 85vw;
+  max-width: 88vw;
 `;

@@ -1,6 +1,16 @@
-import { AppBar, Button, Drawer, Toolbar, Typography } from "@material-ui/core";
+import {
+  AppBar,
+  Button,
+  Drawer,
+  IconButton,
+  Toolbar,
+  Typography,
+  withTheme,
+} from "@material-ui/core";
+import { Add } from "@material-ui/icons";
 import { useState } from "react";
 import styled from "styled-components";
+import { Logo } from "./Logo";
 import { NewRecipeForm } from "./NewRecipeForm";
 
 function Navbar() {
@@ -11,14 +21,12 @@ function Navbar() {
 
   return (
     <>
-      <AppBar position="sticky">
+      <AppBar color="secondary" position="sticky">
         <Container>
-          <NewButton color="inherit" variant="outlined" onClick={handleDrawer}>
-            Add
-          </NewButton>
-          <Logotype>
-            Tess's Kitchen <sup>v0.1</sup>
-          </Logotype>
+          <AddButton onClick={handleDrawer}>
+            <Add />
+          </AddButton>
+          <Logo />
         </Container>
       </AppBar>
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
@@ -30,16 +38,15 @@ function Navbar() {
 
 export default Navbar;
 
-const Logotype = styled(Typography)`
-  // font-size: 18px;
-  font-weight: bolder;
-`;
-
 const Container = styled(Toolbar)`
   justify-content: center;
 `;
 
-const NewButton = styled(Button)`
+const AddButton = withTheme(styled(IconButton)`
   position: absolute;
+  width: 38px;
+  height: 38px;
   right: 16px;
-`;
+  background: ${(props) => props.theme.palette.primary.main};
+  color: white;
+`);

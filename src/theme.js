@@ -4,15 +4,19 @@ export const theme = createMuiTheme({
   palette: {
     primary: {
       main: "#0D3D36",
-      contrastText: "#FFDCE0",
+      contrastText: "#fff",
     },
     secondary: {
-      main: "#FFDCE0",
-      contrastText: "#0D3D36",
+      main: "#fff",
+      contrastText: "#0E0E34",
     },
     background: {
-      default: "#F3F5F5",
+      default: "#fff",
+      paper: "#F3F5F5",
     },
+  },
+  shape: {
+    borderRadius: 16,
   },
   typography: {
     fontFamily: [
@@ -30,6 +34,11 @@ export const theme = createMuiTheme({
   },
   shadows: ["none"],
   overrides: {
+    MuiToolbar: {
+      regular: {
+        height: 80,
+      },
+    },
     MuiTextField: {
       root: {
         width: "100%",
@@ -52,10 +61,13 @@ export const theme = createMuiTheme({
     },
     MuiPaper: {
       root: {
+        borderRadius: "40px",
         boxShadow: "",
-        "&:hover": {
-          boxShadow: "0 6px 10px rgba(0, 0, 0, 0.03)",
-        },
+      },
+    },
+    MuiDrawer: {
+      paper: {
+        borderRadius: "16px 0 0 16px",
       },
     },
   },
