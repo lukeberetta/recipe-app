@@ -11,5 +11,5 @@ export function Logo() {
 }
 
 const Container = styled.div`
-  width: 70px;
+  width: 80px;
 `;

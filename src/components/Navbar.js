@@ -19,14 +19,14 @@ function Navbar() {
 
   return (
     <>
-      <AppBar color="secondary" position="sticky">
+      <Nav color="secondary" position="sticky">
         <Container>
           <AddButton onClick={handleDrawer}>
             <Add />
           </AddButton>
           <Logo />
         </Container>
-      </AppBar>
+      </Nav>
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
         <NewRecipeForm handleDrawer={handleDrawer} />
       </Drawer>
@@ -36,14 +36,17 @@ function Navbar() {
 
 export default Navbar;
 
+const Nav = styled(AppBar)`
+  border-radius: 0;
+`;
+
 const Container = styled(Toolbar)`
   justify-content: center;
 `;
 
 const AddButton = withTheme(styled(IconButton)`
   position: absolute;
-  width: 38px;
-  height: 38px;
+  transform: scale(0.8);
   right: 16px;
   background: ${(props) => props.theme.palette.primary.main};
   color: white;

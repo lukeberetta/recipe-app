@@ -55,7 +55,7 @@ export function RecipeCard(props) {
     <>
       <Card onClick={toggleOpen(true)}>
         <Left>
-          <Body variant="h5">{props.title}</Body>
+          <Body>{props.title}</Body>
         </Left>
         <Right></Right>
       </Card>
@@ -110,7 +110,7 @@ const Right = styled.div`
 `;
 
 const Body = styled(Typography)`
-  text-align: center;
+  font-size: 22px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

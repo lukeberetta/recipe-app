@@ -38,7 +38,7 @@ export const NewRecipeForm = (props) => {
           variant="outlined"
           value={title}
           label="Title"
-          placeholder="Example: Fancy Brownies..."
+          placeholder="Include an emoji 😍"
           onChange={(e) => setTitle(e.currentTarget.value)}
         ></TextField>
         <Spacer />
