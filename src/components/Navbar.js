@@ -1,10 +1,8 @@
 import {
   AppBar,
-  Button,
   Drawer,
   IconButton,
   Toolbar,
-  Typography,
   withTheme,
 } from "@material-ui/core";
 import { Add } from "@material-ui/icons";
