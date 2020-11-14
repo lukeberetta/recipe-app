@@ -29,9 +29,8 @@ const Body = styled.div`
   height: calc(100% - 1px);
   width: 100%;
   margin-top: 68px;
-  z-index: 1;
+  z-index: 9;
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
 `;
 
 const Footer = styled.div`
