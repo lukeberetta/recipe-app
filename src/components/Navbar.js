@@ -38,10 +38,18 @@ export default Navbar;
 
 const Nav = styled(AppBar)`
   border-radius: 0;
-  position: absolute;
+
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // z-index: 10;
+
+  position: fixed;
+  height: 64px;
+  width: 100%;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 1;
 `;
 
 const Container = styled(Toolbar)`
