@@ -20,14 +20,14 @@ code {
 html {
   overflow: hidden;
   height: 100%;
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
 }
 
 body {
   overflow: auto;
   height: 100%;
-  position: relative;
+  /* position: relative; */
 }
 
 /* html, body { height:100%; width:100%; } */
