@@ -17,16 +17,20 @@ code {
 
 /* Prevent bounce */
 
-body {
+html {
   overflow: hidden;
+  height: 100%;
+  position: fixed;
+  width: 100%;
 }
 
-/* 
-html,
 body {
+  overflow: auto;
   height: 100%;
-  width: 100%;
-} */
+  position: relative;
+}
+
+/* html, body { height:100%; width:100%; } */
 
 /* html {
   position: fixed;

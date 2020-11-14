@@ -26,19 +26,11 @@ const Container = styled.div`
 `;
 
 const Body = styled.div`
-  // height: calc(100% - 1px);
-  // width: 100%;
-  // margin-top: 60px;
-  // z-index: 1;
-  // overflow-y: scroll;
-  // -webkit-overflow-scrolling: touch;
-
-  position: absolute;
+  height: calc(100% - 1px);
   width: 100%;
-  top: 64px;
-  bottom: 0px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  margin-top: 60px;
+  z-index: 1;
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 `;
 
