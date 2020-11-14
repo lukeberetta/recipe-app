@@ -26,7 +26,7 @@ export function Recipes() {
   const recipes = useRecipes();
 
   return (
-    <div style={{ marginTop: -8 }}>
+    <>
       {recipes.map((r) => {
         return (
           <RecipeCard
@@ -38,6 +38,6 @@ export function Recipes() {
           ></RecipeCard>
         );
       })}
-    </div>
+    </>
   );
 }

@@ -45,20 +45,6 @@ export const theme = createMuiTheme({
         margin: "8px 0",
       },
     },
-    MuiDialog: {
-      paper: {
-        margin: 16,
-        maxWidth: "none",
-      },
-      paperFullWidth: {
-        width: "100%",
-        height: "100%",
-      },
-      paperScrollPaper: {
-        maxHeight: "calc(100% - 88px)",
-        marginTop: "72px",
-      },
-    },
     MuiPaper: {
       root: {
         borderRadius: "40px",

@@ -54,18 +54,10 @@ export function RecipeCard(props) {
   return (
     <>
       <Card onClick={toggleOpen(true)}>
-        <Left>
-          <Body>{props.title}</Body>
-        </Left>
-        <Right></Right>
+        <Body>{props.title}</Body>
       </Card>
 
-      <Dialog
-        style={{ marginTop: 16 }}
-        open={open}
-        fullWidth
-        onBackdropClick={toggleOpen(false)}
-      >
+      <Dialog open={open} fullWidth onBackdropClick={toggleOpen(false)}>
         <DialogTitle>{props.title}</DialogTitle>
         <CloseButton aria-label="close" onClick={toggleOpen(false)}>
           <Close />
@@ -97,16 +89,7 @@ const Card = styled(Paper)`
   margin: 16px;
   display: flex;
   align-items: center;
-  height: 96px;
-`;
-
-const Left = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-const Right = styled.div`
-  width: 30px;
+  height: 90px;
 `;
 
 const Body = styled(Typography)`
@@ -124,6 +107,7 @@ const CloseButton = styled(IconButton)`
   top: 8px;
   right: 8px;
 `;
+
 const DeleteRecipe = styled(Button)`
   margin-bottom: 8px;
 `;

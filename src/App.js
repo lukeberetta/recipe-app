@@ -6,10 +6,10 @@ import { Recipes } from "./components/Recipes";
 function App() {
   return (
     <Container className="App">
+      <Navbar />
       <Body>
         <Recipes />
       </Body>
-      <Navbar />
       <Footer />
     </Container>
   );
@@ -17,28 +17,15 @@ function App() {
 
 export default App;
 
-const Container = styled.div`
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-`;
+const Container = styled.div``;
 
-const Body = styled.div`
-  height: calc(100% - 1px);
-  width: 100%;
-  margin-top: 68px;
-  z-index: 9;
-  overflow: auto;
-`;
+const Body = styled.div``;
 
 const Footer = styled.div`
   // position: absolute;
   // bottom: 0;
   // left: 0;
   // width: 100%;
-  // height: 40px;
-  // background: #cccccc;
+  // height: 68px;
   // z-index: 11;
 `;
