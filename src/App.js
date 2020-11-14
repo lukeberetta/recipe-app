@@ -28,18 +28,18 @@ const Container = styled.div`
 const Body = styled.div`
   height: calc(100% - 1px);
   width: 100%;
-  margin-top: 60px;
+  margin-top: 68px;
   z-index: 1;
-  overflow-y: scroll;
+  overflow: auto;
   -webkit-overflow-scrolling: touch;
 `;
 
 const Footer = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40px;
-  background: #cccccc;
-  z-index: 11;
+  // position: absolute;
+  // bottom: 0;
+  // left: 0;
+  // width: 100%;
+  // height: 40px;
+  // background: #cccccc;
+  // z-index: 11;
 `;
