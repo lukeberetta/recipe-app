@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RecipeCard } from "./RecipeCard";
 import firebase from "../firebase";
+import styled from "styled-components";
 
 function useRecipes() {
   const [recipes, setRecipes] = useState([]);
@@ -26,7 +27,7 @@ export function Recipes() {
   const recipes = useRecipes();
 
   return (
-    <>
+    <Container>
       {recipes.map((r) => {
         return (
           <RecipeCard
@@ -38,6 +39,11 @@ export function Recipes() {
           ></RecipeCard>
         );
       })}
-    </>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  margin-top: -16px;
+  padding-bottom: 8px;
+`;
