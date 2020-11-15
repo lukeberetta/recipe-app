@@ -1,3 +1,8 @@
+#delete {
+  color: #af5151;
+  border-color: #af5151;
+}
+
 /* dm-sans-regular - latin */
 @font-face {
   font-family: "DM Sans";

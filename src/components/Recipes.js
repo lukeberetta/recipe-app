@@ -3,7 +3,7 @@ import { RecipeCard } from "./RecipeCard";
 import firebase from "../firebase";
 import styled from "styled-components";
 
-function useRecipes() {
+export function Recipes() {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
@@ -20,11 +20,6 @@ function useRecipes() {
       });
     return () => unsubscribe();
   }, []);
-  return recipes;
-}
-
-export function Recipes() {
-  const recipes = useRecipes();
 
   return (
     <Container>
@@ -36,6 +31,7 @@ export function Recipes() {
             title={r.title}
             ingredients={r.ingredients}
             instructions={r.instructions}
+            timestamp={r.timestamp}
           ></RecipeCard>
         );
       })}

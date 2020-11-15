@@ -10,39 +10,35 @@ import {
   Paper,
   Typography,
 } from "@material-ui/core";
-import { Close, Delete } from "@material-ui/icons";
+import { Close, Delete, Edit } from "@material-ui/icons";
 import React, { useState } from "react";
 import styled from "styled-components";
 import firebase from "../firebase";
+import { EditRecipeForm } from "./EditRecipeForm";
 import Spacer from "./Spacer";
 
 export function RecipeCard(props) {
-  const [open, setOpen] = useState(false);
+  const [openCard, setOpenCard] = useState(false);
+  const [openEditForm, setOpenEditForm] = useState(false);
 
-  function deleteRecipe(id) {
+  const deleteRecipe = (id) => {
     firebase.firestore().collection("recipes").doc(id).delete();
-  }
+  };
 
-  function toggleOpen(bool) {
-    return () => setOpen(bool);
-  }
+  const toggleOpen = (func, bool) => {
+    console.log(bool);
+    return () => func(bool);
+  };
 
   const createChecklist = (string) => {
     const arr = string.split(", ");
-
     return (
       <FormGroup>
         {arr.map((item) => {
           return (
             <FormControlLabel
               style={{ textTransform: "capitalize" }}
-              control={
-                <Checkbox
-                // checked={gilad}
-                // onChange={handleChange}
-                // name="gilad"
-                />
-              }
+              control={<Checkbox color="primary" />}
               label={item}
             />
           );
@@ -53,13 +49,20 @@ export function RecipeCard(props) {
 
   return (
     <>
-      <Card onClick={toggleOpen(true)}>
+      <Card onClick={toggleOpen(setOpenCard, true)}>
         <Body>{props.title}</Body>
       </Card>
 
-      <Dialog open={open} fullWidth onBackdropClick={toggleOpen(false)}>
+      <Dialog
+        open={openCard}
+        fullWidth
+        onBackdropClick={toggleOpen(setOpenCard, false)}
+      >
         <DialogTitle>{props.title}</DialogTitle>
-        <CloseButton aria-label="close" onClick={toggleOpen(false)}>
+        <CloseButton
+          aria-label="close"
+          onClick={toggleOpen(setOpenCard, false)}
+        >
           <Close />
         </CloseButton>
         <DialogContent dividers>
@@ -70,16 +73,32 @@ export function RecipeCard(props) {
           <Typography>{props.instructions}</Typography>
           <Spacer />
           <Spacer />
-          <DeleteRecipe
+          <RecipeButton
             startIcon={<Delete />}
             variant="outlined"
             color="primary"
             onClick={() => deleteRecipe(props.id)}
+            id={"delete"}
           >
-            Remove Recipe
-          </DeleteRecipe>
+            Delete
+          </RecipeButton>
+          <RecipeButton
+            startIcon={<Edit />}
+            variant="outlined"
+            color="primary"
+            onClick={toggleOpen(setOpenEditForm, true)}
+          >
+            Edit
+          </RecipeButton>
         </DialogContent>
       </Dialog>
+
+      <EditRecipeForm
+        open={openEditForm}
+        fullWidth
+        close={toggleOpen(setOpenEditForm, false)}
+        {...props}
+      />
     </>
   );
 }
@@ -108,6 +127,6 @@ const CloseButton = styled(IconButton)`
   right: 8px;
 `;
 
-const DeleteRecipe = styled(Button)`
-  margin-bottom: 8px;
+const RecipeButton = styled(Button)`
+  margin: 8px 8px 8px 0;
 `;
