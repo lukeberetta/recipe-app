@@ -26,7 +26,6 @@ export function RecipeCard(props) {
   };
 
   const toggleOpen = (func, bool) => {
-    console.log(bool);
     return () => func(bool);
   };
 
