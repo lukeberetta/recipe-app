@@ -4,7 +4,6 @@ import {
   DialogContent,
   DialogTitle,
   TextField,
-  Typography,
 } from "@material-ui/core";
 import React, { useState } from "react";
 import firebase from "../firebase";
