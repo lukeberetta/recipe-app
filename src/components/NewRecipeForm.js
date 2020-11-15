@@ -54,7 +54,7 @@ export const NewRecipeForm = (props) => {
             variant="outlined"
             label="Ingredients"
             multiline
-            rows={4}
+            rows={2}
             onChange={(e) => setIngredients(e.currentTarget.value)}
           ></TextField>
           <Spacer />
@@ -65,7 +65,7 @@ export const NewRecipeForm = (props) => {
             label="Instructions"
             placeholder="Be descriptive..."
             multiline
-            rows={8}
+            rows={7}
             onChange={(e) => setInstructions(e.currentTarget.value)}
           ></TextField>
           <Spacer />

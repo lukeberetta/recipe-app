@@ -10,7 +10,7 @@ export function Toast(props) {
       }}
       open={props.open}
       onClose={props.close}
-      autoHideDuration={2000}
+      autoHideDuration={3000}
       message={props.message}
     />
   );

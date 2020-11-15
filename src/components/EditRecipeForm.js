@@ -27,10 +27,9 @@ export const EditRecipeForm = (props) => {
 
   return (
     <Dialog open={props.open} onBackdropClick={props.close} fullWidth>
-      <DialogTitle>Edit: {props.title}</DialogTitle>
+      <DialogTitle>Edit recipe</DialogTitle>
       <form onSubmit={onSubmit}>
         <DialogContent dividers>
-          <Typography>What's it called?</Typography>
           <TextField
             required
             variant="outlined"
@@ -40,7 +39,6 @@ export const EditRecipeForm = (props) => {
             onChange={(e) => setTitle(e.currentTarget.value)}
           ></TextField>
           <Spacer />
-          <Typography>What's inside?</Typography>
           <TextField
             value={ingredients}
             required
@@ -48,18 +46,15 @@ export const EditRecipeForm = (props) => {
             variant="outlined"
             label="Ingredients"
             multiline
-            rows={4}
             onChange={(e) => setIngredients(e.currentTarget.value)}
           ></TextField>
           <Spacer />
-          <Typography>How make??</Typography>
           <TextField
             value={instructions}
             variant="outlined"
             label="Instructions"
             placeholder="Be descriptive..."
             multiline
-            rows={8}
             onChange={(e) => setInstructions(e.currentTarget.value)}
           ></TextField>
           <Spacer />
