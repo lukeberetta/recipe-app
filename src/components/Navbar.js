@@ -10,11 +10,17 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Logo } from "./Logo";
 import { NewRecipeForm } from "./NewRecipeForm";
+import { Toast } from "./Toast";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
   const handleDrawer = () => {
     setOpen(!open);
+  };
+
+  const [openToast, setOpenToast] = useState(false);
+  const handleToast = () => {
+    setOpenToast(!openToast);
   };
 
   return (
@@ -28,8 +34,9 @@ function Navbar() {
         </Container>
       </Nav>
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-        <NewRecipeForm handleDrawer={handleDrawer} />
+        <NewRecipeForm handleDrawer={handleDrawer} handleToast={handleToast} />
       </Drawer>
+      <Toast open={openToast} close={handleToast} message="Recipe Added 🥳" />
     </>
   );
 }

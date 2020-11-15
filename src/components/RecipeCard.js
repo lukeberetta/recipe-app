@@ -13,17 +13,12 @@ import {
 import { Close, Delete, Edit } from "@material-ui/icons";
 import React, { useState } from "react";
 import styled from "styled-components";
-import firebase from "../firebase";
 import { EditRecipeForm } from "./EditRecipeForm";
 import Spacer from "./Spacer";
 
 export function RecipeCard(props) {
   const [openCard, setOpenCard] = useState(false);
   const [openEditForm, setOpenEditForm] = useState(false);
-
-  const deleteRecipe = (id) => {
-    firebase.firestore().collection("recipes").doc(id).delete();
-  };
 
   const toggleOpen = (func, bool) => {
     return () => func(bool);
@@ -76,7 +71,7 @@ export function RecipeCard(props) {
             startIcon={<Delete />}
             variant="outlined"
             color="primary"
-            onClick={() => deleteRecipe(props.id)}
+            onClick={() => props.deleteRecipe(props.id)}
             id={"delete"}
           >
             Delete

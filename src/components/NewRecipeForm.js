@@ -25,58 +25,62 @@ export const NewRecipeForm = (props) => {
         setInstructions("");
         setIngredients("");
       });
+
+    props.handleDrawer();
+    props.handleToast();
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <InnerDrawer>
-        <Typography variant="h6">New recipe</Typography>
-        <Spacer />
-        <Typography>What's it called?</Typography>
-        <TextField
-          required
-          variant="outlined"
-          value={title}
-          label="Title"
-          placeholder="Include an emoji 😍"
-          onChange={(e) => setTitle(e.currentTarget.value)}
-        ></TextField>
-        <Spacer />
-        <Typography>What's inside?</Typography>
-        <TextField
-          value={ingredients}
-          required
-          placeholder="Seperate with a comma..."
-          variant="outlined"
-          label="Ingredients"
-          multiline
-          rows={4}
-          onChange={(e) => setIngredients(e.currentTarget.value)}
-        ></TextField>
-        <Spacer />
-        <Typography>How make??</Typography>
-        <TextField
-          value={instructions}
-          variant="outlined"
-          label="Instructions"
-          placeholder="Be descriptive..."
-          multiline
-          rows={8}
-          onChange={(e) => setInstructions(e.currentTarget.value)}
-        ></TextField>
-        <Spacer />
-        <Button
-          fullWidth
-          type="submit"
-          variant="contained"
-          color="primary"
-          size="large"
-          onClick={props.handleDrawer}
-        >
-          done
-        </Button>
-      </InnerDrawer>
-    </form>
+    <>
+      <form onSubmit={onSubmit}>
+        <InnerDrawer>
+          <Typography variant="h6">New recipe</Typography>
+          <Spacer />
+          <Typography>What's it called?</Typography>
+          <TextField
+            required
+            variant="outlined"
+            value={title}
+            label="Title"
+            placeholder="Include an emoji 😍"
+            onChange={(e) => setTitle(e.currentTarget.value)}
+          ></TextField>
+          <Spacer />
+          <Typography>What's inside?</Typography>
+          <TextField
+            value={ingredients}
+            required
+            placeholder="Seperate with a comma..."
+            variant="outlined"
+            label="Ingredients"
+            multiline
+            rows={4}
+            onChange={(e) => setIngredients(e.currentTarget.value)}
+          ></TextField>
+          <Spacer />
+          <Typography>How make??</Typography>
+          <TextField
+            value={instructions}
+            variant="outlined"
+            label="Instructions"
+            placeholder="Be descriptive..."
+            multiline
+            rows={8}
+            onChange={(e) => setInstructions(e.currentTarget.value)}
+          ></TextField>
+          <Spacer />
+          <Button
+            fullWidth
+            type="submit"
+            variant="contained"
+            color="primary"
+            size="large"
+          >
+            done
+          </Button>
+        </InnerDrawer>
+      </form>
+    </>
   );
 };
 

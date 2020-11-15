@@ -56,5 +56,19 @@ export const theme = createMuiTheme({
         borderRadius: "16px 0 0 16px",
       },
     },
+    MuiSnackbar: {
+      root: {
+        left: 16,
+        right: 16,
+      },
+      anchorOriginBottomLeft: {
+        bottom: 16,
+      },
+    },
+    MuiSnackbarContent: {
+      root: {
+        justifyContent: "center",
+      },
+    },
   },
 });
