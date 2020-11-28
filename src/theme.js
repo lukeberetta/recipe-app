@@ -16,7 +16,7 @@ export const theme = createMuiTheme({
     },
   },
   shape: {
-    borderRadius: 16,
+    borderRadius: 14,
   },
   typography: {
     fontFamily: [
@@ -47,13 +47,13 @@ export const theme = createMuiTheme({
     },
     MuiPaper: {
       root: {
-        borderRadius: "40px",
+        // borderRadius: "40px",
         boxShadow: "",
       },
     },
     MuiDrawer: {
       paper: {
-        borderRadius: "16px 0 0 16px",
+        borderRadius: 0,
       },
     },
     MuiSnackbar: {

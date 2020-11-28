@@ -34,9 +34,11 @@ export const NewRecipeForm = (props) => {
     <>
       <form onSubmit={onSubmit}>
         <InnerDrawer>
-          <Typography variant="h6">New recipe</Typography>
+          <Typography align="center" variant="h6">
+            New recipe 🎉
+          </Typography>
+          <Typography align="center">Let the magic begin.</Typography>
           <Spacer />
-          <Typography>What's it called?</Typography>
           <TextField
             required
             variant="outlined"
@@ -45,8 +47,6 @@ export const NewRecipeForm = (props) => {
             placeholder="Include an emoji 😍"
             onChange={(e) => setTitle(e.currentTarget.value)}
           ></TextField>
-          <Spacer />
-          <Typography>What's inside?</Typography>
           <TextField
             value={ingredients}
             required
@@ -57,8 +57,6 @@ export const NewRecipeForm = (props) => {
             rows={2}
             onChange={(e) => setIngredients(e.currentTarget.value)}
           ></TextField>
-          <Spacer />
-          <Typography>How make??</Typography>
           <TextField
             value={instructions}
             variant="outlined"
