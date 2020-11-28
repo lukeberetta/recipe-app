@@ -37,7 +37,6 @@ export const EditRecipeForm = (props) => {
             placeholder="Include an emoji 😍"
             onChange={(e) => setTitle(e.currentTarget.value)}
           ></TextField>
-          <Spacer />
           <TextField
             value={ingredients}
             required
@@ -47,7 +46,6 @@ export const EditRecipeForm = (props) => {
             multiline
             onChange={(e) => setIngredients(e.currentTarget.value)}
           ></TextField>
-          <Spacer />
           <TextField
             value={instructions}
             variant="outlined"
@@ -67,6 +65,7 @@ export const EditRecipeForm = (props) => {
           >
             Done
           </Button>
+          <Spacer />
         </DialogContent>
       </form>
     </Dialog>
